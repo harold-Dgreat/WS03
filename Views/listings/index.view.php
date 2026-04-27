@@ -1,37 +1,15 @@
 <?php
 loadPartial('head');
 loadPartial('navbar');
-loadPartial('showcase');
 ?>
-
-<section class="top-banner">
-    <div class="top-banner-grid"></div>
-    <div class="top-banner-orb top-banner-orb-one"></div>
-    <div class="top-banner-orb top-banner-orb-two"></div>
-
-    <div class="container mx-auto max-w-6xl px-4">
-        <div class="top-banner-card">
-            <span class="top-banner-badge">
-                <i class="fa fa-briefcase"></i>
-                Job Marketplace
-            </span>
-
-            <h2>Explore Job Opportunities</h2>
-
-            <p>
-                Find available roles from different companies and take the next step in your career.
-            </p>
-        </div>
-    </div>
-</section>
 
 <section class="jobs-section">
     <div class="container mx-auto max-w-6xl px-4">
         <div class="jobs-section-header">
-            <span class="jobs-section-badge">Recent Listings</span>
-            <h2 class="jobs-section-title">Available Jobs</h2>
+            <span class="jobs-section-badge">All Opportunities</span>
+            <h1 class="jobs-section-title">Browse All Jobs</h1>
             <p class="jobs-section-subtitle">
-                Browse some of the latest job openings available on the platform.
+                Explore available openings across engineering, design, marketing, and data roles.
             </p>
         </div>
 
@@ -45,7 +23,7 @@ loadPartial('showcase');
 
                     <h3 class="job-card-title">Software Engineer</h3>
                     <p class="job-card-description">
-                        Develop software solutions and work with a team to build reliable applications.
+                        We are seeking a skilled software engineer to develop high-quality software solutions.
                     </p>
 
                     <div class="job-card-meta">
@@ -79,7 +57,7 @@ loadPartial('showcase');
 
                     <h3 class="job-card-title">Marketing Specialist</h3>
                     <p class="job-card-description">
-                        Help manage campaigns and support promotional activities for the company.
+                        We are looking for a Marketing Specialist to create and manage marketing campaigns.
                     </p>
 
                     <div class="job-card-meta">
@@ -107,13 +85,13 @@ loadPartial('showcase');
             <article class="job-card">
                 <div class="job-card-content">
                     <div class="job-card-top">
-                        <span class="job-card-category">Web</span>
+                        <span class="job-card-category">Development</span>
                         <span class="job-badge">Local</span>
                     </div>
 
                     <h3 class="job-card-title">Web Developer</h3>
                     <p class="job-card-description">
-                        Create and maintain websites and web applications for business needs.
+                        Join our team as a Web Developer and create amazing web applications.
                     </p>
 
                     <div class="job-card-meta">
@@ -128,7 +106,7 @@ loadPartial('showcase');
                         <div class="job-meta-row job-tags-row">
                             <span class="job-meta-label">Tags</span>
                             <div class="job-tags">
-                                <span class="job-tag">Web</span>
+                                <span class="job-tag">Web Development</span>
                                 <span class="job-tag">Programming</span>
                             </div>
                         </div>
@@ -147,7 +125,7 @@ loadPartial('showcase');
 
                     <h3 class="job-card-title">Data Analyst</h3>
                     <p class="job-card-description">
-                        Interpret data and prepare reports that help guide business decisions.
+                        We are hiring a Data Analyst to analyze and interpret data for insights.
                     </p>
 
                     <div class="job-card-meta">
@@ -162,8 +140,8 @@ loadPartial('showcase');
                         <div class="job-meta-row job-tags-row">
                             <span class="job-meta-label">Tags</span>
                             <div class="job-tags">
-                                <span class="job-tag">Data</span>
-                                <span class="job-tag">Reports</span>
+                                <span class="job-tag">Data Analysis</span>
+                                <span class="job-tag">Statistics</span>
                             </div>
                         </div>
                     </div>
@@ -181,7 +159,7 @@ loadPartial('showcase');
 
                     <h3 class="job-card-title">Graphic Designer</h3>
                     <p class="job-card-description">
-                        Design creative materials for branding, marketing, and communication.
+                        Join our creative team as a Graphic Designer and bring ideas to life.
                     </p>
 
                     <div class="job-card-meta">
@@ -196,7 +174,7 @@ loadPartial('showcase');
                         <div class="job-meta-row job-tags-row">
                             <span class="job-meta-label">Tags</span>
                             <div class="job-tags">
-                                <span class="job-tag">Design</span>
+                                <span class="job-tag">Graphic Design</span>
                                 <span class="job-tag">Creative</span>
                             </div>
                         </div>
@@ -215,7 +193,7 @@ loadPartial('showcase');
 
                     <h3 class="job-card-title">Data Scientist</h3>
                     <p class="job-card-description">
-                        Analyze complex data sets and provide useful insights for company growth.
+                        We're looking for a Data Scientist to analyze complex data and generate insights.
                     </p>
 
                     <div class="job-card-meta">
@@ -230,8 +208,8 @@ loadPartial('showcase');
                         <div class="job-meta-row job-tags-row">
                             <span class="job-meta-label">Tags</span>
                             <div class="job-tags">
-                                <span class="job-tag">Data</span>
-                                <span class="job-tag">Analysis</span>
+                                <span class="job-tag">Data Science</span>
+                                <span class="job-tag">Machine Learning</span>
                             </div>
                         </div>
                     </div>
@@ -240,41 +218,19 @@ loadPartial('showcase');
                 </div>
             </article>
         </div>
-
-        <div class="jobs-footer-link-wrap">
-            <a href="/WS03/Public/listings" class="jobs-footer-link">
-                <span>Show All Jobs</span>
-                <i class="fa fa-arrow-right"></i>
+        <div class="back-link-wrap">
+            <a href="/WS03/Public/" class="back-link">
+                <i class="fa fa-arrow-left"></i>
+                <span>Back to Home</span>
             </a>
         </div>
     </div>
+
+
+
 </section>
 
-<section class="cta-section">
-    <div class="container mx-auto max-w-6xl px-4">
-        <div class="cta-banner">
-            <div class="cta-content">
-                <span class="cta-badge">
-                    <i class="fa fa-bolt"></i>
-                    Employer Portal
-                </span>
 
-                <h2>Post a Job Opening</h2>
-
-                <p>
-                    Share your available role and reach more applicants with a professional job listing.
-                </p>
-            </div>
-
-            <div class="cta-actions">
-                <a href="/WS03/Public/listings/create" class="btn btn-primary">
-                    <i class="fa fa-edit"></i>
-                    Post a Job
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 
 <?php
 loadPartial('footer');

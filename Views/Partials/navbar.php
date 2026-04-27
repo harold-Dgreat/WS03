@@ -1,17 +1,21 @@
-<!-- Nav -->
-    <header class="bg-blue-900 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-3xl font-semibold">
-          <a href="index.html">Prosple</a>
-        </h1>
-        <nav class="space-x-4">
-          <a href="login.html" class="text-white hover:underline">Login</a>
-          <a href="register.html" class="text-white hover:underline">Register</a>
-          <a
-            href="post-job.html"
-            class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded hover:shadow-md transition duration-300"
-            ><i class="fa fa-edit"></i> Post a Job</a
-          >
-        </nav>
-      </div>
-    </header>
+<header class="site-header">
+    <div class="container mx-auto max-w-6xl px-4">
+        <div class="header-inner">
+            <h1 class="brand">
+                <a href="/WS03/Public/">
+                    <span class="brand-mark">P</span>
+                    <span class="brand-text">Prosple</span>
+                </a>
+            </h1>
+
+            <nav class="main-nav">
+                <a href="/WS03/Public/login" class="nav-link">Login</a>
+                <a href="/WS03/Public/register" class="nav-link">Register</a>
+                <a href="/WS03/Public/listings/create" class="btn btn-primary nav-cta">
+                    <i class="fa fa-edit"></i>
+                    <span>Post a Job</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>

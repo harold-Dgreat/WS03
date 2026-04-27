@@ -1,29 +1,19 @@
-<?php 
+<?php
 
-function basePath($path = '') {
-    return __DIR__.'/'.$path;
+function basePath($path = '')
+{
+    return __DIR__ . '/' . $path;
 }
 
-/**
- * loadView 
- * 
- * @param string $name 
- * @return void
- * 
- */
-function loadView($name) {
-    require basePath("Views/{$name}.View.php");
+function loadView($name)
+{
+    require basePath("Views/{$name}.view.php");
 }
 
-/**
- * loadPartial 
- * 
- * @param string $name 
- * @return void
- * 
- */
-function loadPartial($name) {
+function loadPartial($name)
+{
     $partialPath = basePath("Views/Partials/{$name}.php");
+
     if (file_exists($partialPath)) {
         require $partialPath;
     } else {
