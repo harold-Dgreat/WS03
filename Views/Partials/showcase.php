@@ -18,6 +18,10 @@
                 Explore curated roles, connect with growing companies, and find the next opportunity
                 that fits your skills, goals, and ambition.
             </p>
+            <div class="hero-search-label">
+                <i class="fa fa-magnifying-glass-chart"></i>
+                Start your search here
+            </div>
 
             <form class="hero-search-form">
                 <div class="input-group">
@@ -56,10 +60,9 @@
 
         <div class="hero-visual">
             <div class="hero-image-card">
-                <img 
-                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85" 
-                    alt="Professionals collaborating in a modern workplace"
-                />
+                <img
+                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85"
+                    alt="Professionals collaborating in a modern workplace" />
 
                 <div class="hero-image-overlay"></div>
 

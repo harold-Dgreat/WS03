@@ -1,223 +1,174 @@
 <?php
 loadPartial('head');
 loadPartial('navbar');
+
+$jobs = [
+    [
+        'category' => 'Engineering',
+        'badge' => 'Local',
+        'badgeClass' => '',
+        'icon' => 'fa-code',
+        'title' => 'Software Engineer',
+        'description' => 'We are seeking a skilled software engineer to develop high-quality software solutions.',
+        'salary' => '$80,000',
+        'location' => 'New York',
+        'tags' => ['Development', 'Coding'],
+    ],
+    [
+        'category' => 'Marketing',
+        'badge' => 'Remote',
+        'badgeClass' => 'remote',
+        'icon' => 'fa-bullhorn',
+        'title' => 'Marketing Specialist',
+        'description' => 'We are looking for a Marketing Specialist to create and manage marketing campaigns.',
+        'salary' => '$70,000',
+        'location' => 'San Francisco',
+        'tags' => ['Marketing', 'Advertising'],
+    ],
+    [
+        'category' => 'Development',
+        'badge' => 'Local',
+        'badgeClass' => '',
+        'icon' => 'fa-globe',
+        'title' => 'Web Developer',
+        'description' => 'Join our team as a Web Developer and create amazing web applications.',
+        'salary' => '$75,000',
+        'location' => 'Los Angeles',
+        'tags' => ['Web Development', 'Programming'],
+    ],
+    [
+        'category' => 'Analytics',
+        'badge' => 'Remote',
+        'badgeClass' => 'remote',
+        'icon' => 'fa-chart-line',
+        'title' => 'Data Analyst',
+        'description' => 'We are hiring a Data Analyst to analyze and interpret data for insights.',
+        'salary' => '$65,000',
+        'location' => 'Chicago',
+        'tags' => ['Data Analysis', 'Statistics'],
+    ],
+    [
+        'category' => 'Design',
+        'badge' => 'Local',
+        'badgeClass' => '',
+        'icon' => 'fa-pen-nib',
+        'title' => 'Graphic Designer',
+        'description' => 'Join our creative team as a Graphic Designer and bring ideas to life.',
+        'salary' => '$60,000',
+        'location' => 'Miami',
+        'tags' => ['Graphic Design', 'Creative'],
+    ],
+    [
+        'category' => 'Data Science',
+        'badge' => 'Remote',
+        'badgeClass' => 'remote',
+        'icon' => 'fa-database',
+        'title' => 'Data Scientist',
+        'description' => "We're looking for a Data Scientist to analyze complex data and generate insights.",
+        'salary' => '$90,000',
+        'location' => 'Seattle',
+        'tags' => ['Data Science', 'Machine Learning'],
+    ],
+];
 ?>
 
 <section class="jobs-section">
     <div class="container mx-auto max-w-6xl px-4">
         <div class="jobs-section-header">
             <span class="jobs-section-badge">All Opportunities</span>
+
             <h1 class="jobs-section-title">Browse All Jobs</h1>
+
             <p class="jobs-section-subtitle">
                 Explore available openings across engineering, design, marketing, and data roles.
             </p>
         </div>
 
         <div class="jobs-grid">
-            <article class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-top">
-                        <span class="job-card-category">Engineering</span>
-                        <span class="job-badge">Local</span>
-                    </div>
+            <?php foreach ($jobs as $job): ?>
+                <article class="job-card">
+                    <div class="job-card-inner">
+                        <div class="job-card-face job-card-front">
+                            <div class="job-card-top">
+                                <span class="job-card-category">
+                                    <?= $job['category'] ?>
+                                </span>
 
-                    <h3 class="job-card-title">Software Engineer</h3>
-                    <p class="job-card-description">
-                        We are seeking a skilled software engineer to develop high-quality software solutions.
-                    </p>
+                                <span class="job-badge <?= $job['badgeClass'] ?>">
+                                    <?= $job['badge'] ?>
+                                </span>
+                            </div>
 
-                    <div class="job-card-meta">
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Salary</span>
-                            <span class="job-salary">$80,000</span>
-                        </div>
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Location</span>
-                            <span class="job-location">New York</span>
-                        </div>
-                        <div class="job-meta-row job-tags-row">
-                            <span class="job-meta-label">Tags</span>
-                            <div class="job-tags">
-                                <span class="job-tag">Development</span>
-                                <span class="job-tag">Coding</span>
+                            <div class="job-preview-icon">
+                                <i class="fa <?= $job['icon'] ?>"></i>
+                            </div>
+
+                            <h3 class="job-card-title">
+                                <?= $job['title'] ?>
+                            </h3>
+
+                            <p class="job-card-description">
+                                <?= $job['description'] ?>
+                            </p>
+
+                            <div class="job-preview-footer">
+                                <span class="job-salary">
+                                    <?= $job['salary'] ?>
+                                </span>
+
+                                <span class="job-flip-hint">
+                                    Hover for details
+                                </span>
                             </div>
                         </div>
-                    </div>
 
-                    <a href="/WS03/Public/listings/details" class="job-details-btn">View Details</a>
-                </div>
-            </article>
+                        <div class="job-card-face job-card-back">
+                            <div class="job-card-back-header">
+                                <span class="job-card-category">
+                                    <?= $job['category'] ?>
+                                </span>
 
-            <article class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-top">
-                        <span class="job-card-category">Marketing</span>
-                        <span class="job-badge remote">Remote</span>
-                    </div>
-
-                    <h3 class="job-card-title">Marketing Specialist</h3>
-                    <p class="job-card-description">
-                        We are looking for a Marketing Specialist to create and manage marketing campaigns.
-                    </p>
-
-                    <div class="job-card-meta">
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Salary</span>
-                            <span class="job-salary">$70,000</span>
-                        </div>
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Location</span>
-                            <span class="job-location">San Francisco</span>
-                        </div>
-                        <div class="job-meta-row job-tags-row">
-                            <span class="job-meta-label">Tags</span>
-                            <div class="job-tags">
-                                <span class="job-tag">Marketing</span>
-                                <span class="job-tag">Advertising</span>
+                                <h3 class="job-card-title">
+                                    <?= $job['title'] ?>
+                                </h3>
                             </div>
-                        </div>
-                    </div>
 
-                    <a href="/WS03/Public/listings/details" class="job-details-btn">View Details</a>
-                </div>
-            </article>
+                            <div class="job-card-meta">
+                                <div class="job-meta-row">
+                                    <span class="job-meta-label">Salary</span>
+                                    <span class="job-salary"><?= $job['salary'] ?></span>
+                                </div>
 
-            <article class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-top">
-                        <span class="job-card-category">Development</span>
-                        <span class="job-badge">Local</span>
-                    </div>
+                                <div class="job-meta-row">
+                                    <span class="job-meta-label">Location</span>
+                                    <span class="job-location"><?= $job['location'] ?></span>
+                                </div>
 
-                    <h3 class="job-card-title">Web Developer</h3>
-                    <p class="job-card-description">
-                        Join our team as a Web Developer and create amazing web applications.
-                    </p>
+                                <div class="job-meta-row">
+                                    <span class="job-meta-label">Type</span>
+                                    <span class="job-location"><?= $job['badge'] ?></span>
+                                </div>
 
-                    <div class="job-card-meta">
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Salary</span>
-                            <span class="job-salary">$75,000</span>
-                        </div>
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Location</span>
-                            <span class="job-location">Los Angeles</span>
-                        </div>
-                        <div class="job-meta-row job-tags-row">
-                            <span class="job-meta-label">Tags</span>
-                            <div class="job-tags">
-                                <span class="job-tag">Web Development</span>
-                                <span class="job-tag">Programming</span>
+                                <div class="job-meta-row job-tags-row">
+                                    <span class="job-meta-label">Tags</span>
+
+                                    <div class="job-tags">
+                                        <?php foreach ($job['tags'] as $tag): ?>
+                                            <span class="job-tag"><?= $tag ?></span>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
                             </div>
+
+                            <a href="/WS03/Public/listings/details" class="job-details-btn">
+                                View Details
+                            </a>
                         </div>
                     </div>
-
-                    <a href="/WS03/Public/listings/details" class="job-details-btn">View Details</a>
-                </div>
-            </article>
-
-            <article class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-top">
-                        <span class="job-card-category">Analytics</span>
-                        <span class="job-badge remote">Remote</span>
-                    </div>
-
-                    <h3 class="job-card-title">Data Analyst</h3>
-                    <p class="job-card-description">
-                        We are hiring a Data Analyst to analyze and interpret data for insights.
-                    </p>
-
-                    <div class="job-card-meta">
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Salary</span>
-                            <span class="job-salary">$65,000</span>
-                        </div>
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Location</span>
-                            <span class="job-location">Chicago</span>
-                        </div>
-                        <div class="job-meta-row job-tags-row">
-                            <span class="job-meta-label">Tags</span>
-                            <div class="job-tags">
-                                <span class="job-tag">Data Analysis</span>
-                                <span class="job-tag">Statistics</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="/WS03/Public/listings/details" class="job-details-btn">View Details</a>
-                </div>
-            </article>
-
-            <article class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-top">
-                        <span class="job-card-category">Design</span>
-                        <span class="job-badge">Local</span>
-                    </div>
-
-                    <h3 class="job-card-title">Graphic Designer</h3>
-                    <p class="job-card-description">
-                        Join our creative team as a Graphic Designer and bring ideas to life.
-                    </p>
-
-                    <div class="job-card-meta">
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Salary</span>
-                            <span class="job-salary">$60,000</span>
-                        </div>
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Location</span>
-                            <span class="job-location">Miami</span>
-                        </div>
-                        <div class="job-meta-row job-tags-row">
-                            <span class="job-meta-label">Tags</span>
-                            <div class="job-tags">
-                                <span class="job-tag">Graphic Design</span>
-                                <span class="job-tag">Creative</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="/WS03/Public/listings/details" class="job-details-btn">View Details</a>
-                </div>
-            </article>
-
-            <article class="job-card">
-                <div class="job-card-content">
-                    <div class="job-card-top">
-                        <span class="job-card-category">Data Science</span>
-                        <span class="job-badge remote">Remote</span>
-                    </div>
-
-                    <h3 class="job-card-title">Data Scientist</h3>
-                    <p class="job-card-description">
-                        We're looking for a Data Scientist to analyze complex data and generate insights.
-                    </p>
-
-                    <div class="job-card-meta">
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Salary</span>
-                            <span class="job-salary">$90,000</span>
-                        </div>
-                        <div class="job-meta-row">
-                            <span class="job-meta-label">Location</span>
-                            <span class="job-location">Seattle</span>
-                        </div>
-                        <div class="job-meta-row job-tags-row">
-                            <span class="job-meta-label">Tags</span>
-                            <div class="job-tags">
-                                <span class="job-tag">Data Science</span>
-                                <span class="job-tag">Machine Learning</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="/WS03/Public/listings/details" class="job-details-btn">View Details</a>
-                </div>
-            </article>
+                </article>
+            <?php endforeach; ?>
         </div>
+
         <div class="back-link-wrap">
             <a href="/WS03/Public/" class="back-link">
                 <i class="fa fa-arrow-left"></i>
@@ -225,12 +176,7 @@ loadPartial('navbar');
             </a>
         </div>
     </div>
-
-
-
 </section>
-
-
 
 <?php
 loadPartial('footer');
