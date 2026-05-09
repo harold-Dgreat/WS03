@@ -1680,7 +1680,7 @@ img {
 }
 
 /* =========================================================
-   JOB SECTION - DARK PROFESSIONAL NEOBRUTALISM FLIP CARDS
+   JOB SECTION - DARK PROFESSIONAL NEOBRUTALISM NORMAL CARDS
    ========================================================= */
 
 .jobs-section {
@@ -1756,81 +1756,36 @@ img {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.75rem;
-  perspective: 1800px;
 }
 
 .job-card {
   position: relative;
-  min-height: 440px;
-  border-radius: 24px;
-  perspective: 1800px;
-  animation: cardReveal 0.7s cubic-bezier(.2, .9, .2, 1.1) both;
-  transition: transform 0.45s ease;
-}
-
-.job-card:hover {
-  transform: translate(-6px, -6px);
-}
-
-.job-card-inner {
-  position: relative;
-  width: 100%;
-  min-height: 440px;
-  transform-style: preserve-3d;
-  transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.job-card:hover .job-card-inner {
-  transform: rotateY(180deg);
-}
-
-.job-card-face {
-  position: absolute;
-  inset: 0;
-  min-height: 440px;
-  padding: 1.55rem;
   border: 3px solid var(--border);
   border-radius: 24px;
-  overflow: hidden;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform-style: preserve-3d;
-  box-shadow: var(--shadow-md);
-}
-
-.job-card-front {
-  display: flex;
-  flex-direction: column;
-  transform: rotateY(0deg) translateZ(1px);
   background:
     radial-gradient(circle at 18% 16%, rgba(34, 211, 238, 0.13), transparent 28%),
     radial-gradient(circle at 86% 80%, rgba(139, 92, 246, 0.16), transparent 34%),
     linear-gradient(145deg, rgba(21, 25, 39, 0.98), rgba(27, 32, 51, 0.98));
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  animation: cardReveal 0.7s cubic-bezier(.2, .9, .2, 1.1) both;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
-.job-card-back {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transform: rotateY(180deg) translateZ(1px);
-  background:
-    radial-gradient(circle at 14% 16%, rgba(34, 211, 238, 0.12), transparent 26%),
-    radial-gradient(circle at 86% 82%, rgba(139, 92, 246, 0.16), transparent 30%),
-    linear-gradient(145deg, #101524 0%, #171d31 48%, #101524 100%) !important;
-}
-
-.job-card-face::before {
+.job-card::before {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
   height: 9px;
   background: linear-gradient(90deg, var(--accent), var(--primary), var(--secondary), var(--accent-2));
   border-bottom: 3px solid var(--border);
-  z-index: 3;
+  z-index: 2;
 }
 
-.job-card-face::after {
+.job-card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -1844,22 +1799,26 @@ img {
       transparent 100%);
   transform: skewX(-16deg);
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
 }
 
-.job-card:hover .job-card-face::after {
-  animation: jobCardShine 0.95s ease;
-}
-
-.job-card:hover .job-card-face {
+.job-card:hover {
+  transform: translate(-6px, -6px);
+  border-color: var(--accent);
   box-shadow: 16px 16px 0 var(--border-dark), var(--glow-accent);
 }
 
-.job-card-front>*,
-.job-card-back>* {
+.job-card:hover::after {
+  animation: jobCardShine 0.95s ease;
+}
+
+.job-card-content {
   position: relative;
-  z-index: 4;
-  transform: translateZ(32px);
+  z-index: 3;
+  height: 100%;
+  padding: 1.55rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .job-card-top {
@@ -1916,7 +1875,7 @@ img {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: #ffffff;
   box-shadow: var(--shadow-sm), var(--glow-primary);
-  transform: rotate(-3deg) translateZ(32px);
+  transform: rotate(-3deg);
   transition:
     transform var(--transition-smooth),
     box-shadow var(--transition-smooth),
@@ -1925,10 +1884,10 @@ img {
 
 .job-preview-icon i {
   font-size: 1.85rem;
-  transition: transform 0.3s cubic-bezier(.2, .9, .2, 1.35);
 }
 
 .job-card:hover .job-preview-icon {
+  transform: rotate(3deg) translate(-3px, -3px);
   background: linear-gradient(135deg, var(--accent), var(--primary));
   box-shadow: var(--shadow-md), var(--glow-accent);
 }
@@ -1950,45 +1909,9 @@ img {
   line-height: 1.75;
 }
 
-.job-preview-footer {
-  margin-top: auto;
-  padding-top: 1.15rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  border-top: 2px dashed rgba(248, 250, 252, 0.24);
-}
-
-.job-flip-hint {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 0.7rem;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-pill);
-  background: #0f1220;
-  color: var(--text-soft);
-  box-shadow: 3px 3px 0 var(--border-dark);
-  font-size: 0.72rem;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.job-card-back-header {
-  margin-bottom: 1rem;
-}
-
-.job-card-back-header .job-card-category {
-  margin-bottom: 0.8rem;
-}
-
-.job-card-back .job-card-title {
-  color: #ffffff !important;
-  text-shadow: 3px 3px 0 var(--border-dark);
-}
-
 .job-card-meta {
   padding: 1rem;
+  margin-top: auto;
   margin-bottom: 1.25rem;
   border-radius: 18px;
   background: rgba(8, 10, 18, 0.82) !important;
@@ -2229,34 +2152,16 @@ img {
     font-size: clamp(2.2rem, 11vw, 3.4rem);
   }
 
-  .job-card,
-  .job-card-inner,
-  .job-card-face {
+  .job-card:hover {
+    transform: translate(-4px, -4px);
+  }
+
+  .job-card-content {
+    padding: 1.8rem 1.25rem 1.25rem;
+  }
+
+  .job-card-description {
     min-height: auto;
-  }
-
-  .job-card:hover,
-  .job-card:hover .job-card-inner,
-  .job-card-inner {
-    transform: none !important;
-  }
-
-  .job-card-face {
-    position: relative;
-    transform: none !important;
-  }
-
-  .job-card-front {
-    display: flex;
-  }
-
-  .job-card-back {
-    display: none;
-  }
-
-  .job-preview-footer {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .jobs-footer-link {
@@ -4945,5 +4850,302 @@ textarea.form-input {
 
   .site-footer h3 {
     font-size: 1.55rem;
+  }
+}
+
+/* =========================================================
+   FINAL FIX - TOP BANNER USING CURRENT HTML STRUCTURE
+   ========================================================= */
+
+.top-banner {
+  position: relative;
+  padding: 5rem 1rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.16), transparent 26%),
+    radial-gradient(circle at 82% 70%, rgba(139, 92, 246, 0.18), transparent 30%),
+    linear-gradient(135deg, #080a12 0%, #0f1220 45%, #171235 100%) !important;
+  border-top: 3px solid var(--border);
+  border-bottom: 3px solid var(--border);
+}
+
+.top-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(248, 250, 252, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 250, 252, 0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.top-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 75%;
+  height: 100%;
+  background:
+    linear-gradient(120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.14) 50%,
+      transparent 100%);
+  transform: skewX(-16deg);
+  animation: topBannerAutoShine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.top-banner .container {
+  position: relative;
+  z-index: 2;
+  max-width: 880px !important;
+  margin: 0 auto;
+  padding: 2.8rem 2rem !important;
+  text-align: center;
+  border: 3px solid var(--border);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(34, 211, 238, 0.1), transparent 30%),
+    radial-gradient(circle at 86% 80%, rgba(139, 92, 246, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(21, 25, 39, 0.97), rgba(27, 32, 51, 0.97));
+  box-shadow: var(--shadow-lg), var(--glow-primary);
+  overflow: hidden;
+  animation: brutalPopIn 0.7s cubic-bezier(.2, .9, .2, 1.15) both;
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    border-color var(--transition-fast);
+}
+
+.top-banner .container::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--primary), var(--secondary), var(--accent-2));
+  border-bottom: 3px solid var(--border);
+}
+
+.top-banner .container::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 2px dashed rgba(248, 250, 252, 0.32);
+  border-radius: 18px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.top-banner .container:hover {
+  transform: translate(-7px, -7px);
+  border-color: var(--accent);
+  box-shadow: 20px 20px 0 var(--border-dark), var(--glow-accent);
+}
+
+.top-banner h2 {
+  position: relative;
+  z-index: 3;
+  margin: 0 0 0.85rem;
+  color: var(--text) !important;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  text-shadow: 5px 5px 0 var(--border-dark);
+}
+
+.top-banner p {
+  position: relative;
+  z-index: 3;
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text-soft) !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.top-banner .container:hover h2 {
+  color: var(--accent) !important;
+  text-shadow:
+    5px 5px 0 var(--border-dark),
+    0 0 28px rgba(34, 211, 238, 0.38);
+  animation: topBannerTitleJolt 0.45s cubic-bezier(.2, .9, .2, 1.2);
+}
+
+.top-banner .container:hover p {
+  color: var(--text) !important;
+}
+
+
+/* =========================================================
+   FINAL FIX - POST A JOB CTA BANNER USING CURRENT HTML
+   ========================================================= */
+
+section:has(.cta-banner) {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.cta-banner {
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.7rem;
+  border: 3px solid var(--border);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 14% 20%, rgba(34, 211, 238, 0.14), transparent 30%),
+    radial-gradient(circle at 86% 80%, rgba(139, 92, 246, 0.18), transparent 34%),
+    linear-gradient(145deg, rgba(21, 25, 39, 0.98), rgba(27, 32, 51, 0.98)) !important;
+  box-shadow: var(--shadow-lg), var(--glow-primary);
+  overflow: hidden;
+  animation: brutalPopIn 0.75s cubic-bezier(.2, .9, .2, 1.15) both;
+  transition:
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    border-color var(--transition-fast);
+}
+
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 10px;
+  background: linear-gradient(90deg, var(--accent), var(--primary), var(--secondary), var(--accent-2));
+  border-bottom: 3px solid var(--border);
+  z-index: 2;
+}
+
+.cta-banner::after {
+  content: "HIRING";
+  position: absolute;
+  right: 2rem;
+  top: 1.6rem;
+  z-index: 1;
+  padding: 0.35rem 0.9rem;
+  border: 3px solid var(--border);
+  border-radius: 14px;
+  background: var(--accent-2);
+  color: #050505;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  transform: rotate(7deg);
+  animation: ctaStickerFloat 3.8s ease-in-out infinite;
+}
+
+.cta-banner>div,
+.cta-banner>a {
+  position: relative;
+  z-index: 4;
+}
+
+.cta-banner:hover {
+  transform: translate(-6px, -6px) rotate(-0.25deg);
+  border-color: var(--accent);
+  box-shadow: 20px 20px 0 var(--border-dark), var(--glow-accent);
+}
+
+.cta-banner h2 {
+  margin: 0 0 0.85rem;
+  max-width: 760px;
+  color: var(--text) !important;
+  font-size: clamp(2.2rem, 4.6vw, 4rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.08em;
+  text-shadow: 5px 5px 0 var(--border-dark);
+}
+
+.cta-banner:hover h2 {
+  color: var(--accent) !important;
+  text-shadow:
+    5px 5px 0 var(--border-dark),
+    0 0 30px rgba(34, 211, 238, 0.34);
+}
+
+.cta-banner p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--text-soft) !important;
+  font-size: 1.03rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.cta-banner .btn {
+  min-width: 185px;
+  min-height: 58px;
+  font-size: 1rem;
+  animation: ctaButtonPulse 2.8s ease-in-out infinite;
+}
+
+.cta-banner .btn:hover {
+  animation-play-state: paused;
+}
+
+
+/* =========================================================
+   FINAL RESPONSIVE FIXES
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .cta-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner::after {
+    right: 1.25rem;
+    top: 1.25rem;
+    font-size: 1.25rem;
+  }
+
+  .cta-banner .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-banner {
+    padding: 3.5rem 1rem;
+  }
+
+  .top-banner .container {
+    padding: 2.3rem 1.25rem !important;
+  }
+
+  .top-banner .container:hover {
+    transform: translate(-4px, -4px);
+  }
+
+  .top-banner h2 {
+    font-size: clamp(2.2rem, 11vw, 3.4rem);
+  }
+
+  .top-banner p {
+    font-size: 0.98rem;
+  }
+
+  section:has(.cta-banner) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .cta-banner {
+    padding: 2.2rem 1.25rem;
+  }
+
+  .cta-banner h2 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
   }
 }

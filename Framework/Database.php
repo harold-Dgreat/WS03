@@ -1,10 +1,14 @@
 <?php
 
+namespace Framework;
+
+use PDO;
+use PDOException;
+use Exception;
+
 class Database
 {
     public $conn;
-
-    private static $messagePrinted = false;
 
     public function __construct($config)
     {
@@ -12,30 +16,30 @@ class Database
 
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
         ];
 
         try {
             $this->conn = new PDO($dsn, $config['username'], $config['password'], $options);
-
-            if (!self::$messagePrinted) {
-                echo "Connected to database successfully.";
-                self::$messagePrinted = true;
-            }
         } catch (PDOException $e) {
             throw new Exception("Database connection failed: " . $e->getMessage());
         }
     }
 
-    public function Query($Query)
+    public function query($query, $params = [])
     {
         try {
-            $sth = $this->conn->prepare($Query);
+            $sth = $this->conn->prepare($query);
+
+            foreach ($params as $param => $value) {
+                $sth->bindValue(':' . $param, $value);
+            }
+
             $sth->execute();
 
             return $sth;
         } catch (PDOException $e) {
-            throw new Exception("Failed to execute query: {$e->getMessage()}");
+            throw new Exception("Failed to execute query: " . $e->getMessage());
         }
     }
 }

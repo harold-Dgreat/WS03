@@ -1,0 +1,14 @@
+{
+    "name": "harold/ws03",
+    "description": "A simple PHP job listing web application",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/"
+        },
+        "files": [
+            "helpers.php"
+        ]
+    },
+    "require": {}
+}
