@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Framework\\": "Framework/"
+            "Framework\\": "Framework/",
+            "App\\": "App/"
         },
         "files": [
             "helpers.php"
