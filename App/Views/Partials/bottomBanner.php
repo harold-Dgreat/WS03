@@ -1,3 +1,8 @@
+<?php
+
+use Framework\Session;
+?>
+
 <section class="container mx-auto my-6">
     <div
         class="bg-blue-800 text-white rounded p-4 flex items-center justify-between">
@@ -7,9 +12,12 @@
                 Post your job listing now and find the perfect candidate.
             </p>
         </div>
-        <a href="/WS03/Public/listings/create" class="btn btn-primary">
-            <i class="fa fa-edit"></i>
-            Post a Job
-        </a>
+        <?php if (Session::has('user_id')) : ?>
+            <a href="/WS03/Public/listings/create" class="btn btn-primary">
+                <i class="fa fa-edit"></i>
+                Post a Job
+            </a>
+        <?php endif; ?>
+
     </div>
 </section>

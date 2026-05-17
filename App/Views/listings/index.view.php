@@ -17,37 +17,51 @@ loadPartial('navbar');
 <section class="jobs-section">
     <div class="container mx-auto max-w-6xl px-4">
         <div class="jobs-section-header">
-            <span class="jobs-section-badge">All Jobs</span>
+            <span class="jobs-section-badge">
+                <?php if (isset($keywords)): ?>
+                    Search Results for: <?=
+                                        htmlspecialchars($keywords) ?>
+                <?php else : ?>
+                    All Jobs
+                <?php endif; ?>
+            </span>
             <h2 class="jobs-section-title">Available Opportunities</h2>
             <p class="jobs-section-subtitle">
                 Find the right job based on your skills, location, and preferred work setup.
             </p>
+            <?php loadPartial('message'); ?>
         </div>
 
         <div class="jobs-grid">
             <?php foreach ($listings as $listing) : ?>
                 <article class="job-card">
                     <div class="job-card-content">
+                        <!-- Top row: Company and badge -->
                         <div class="job-card-top">
                             <span class="job-card-category">
-                                <?= htmlspecialchars($listing->company ?? 'Company') ?>
+                                <?= htmlspecialchars_decode($listing->company ?? 'Company') ?>
                             </span>
-
                             <span class="job-badge">Local</span>
                         </div>
 
+                        <!-- Job icon -->
                         <div class="job-preview-icon">
                             <i class="fa fa-briefcase"></i>
                         </div>
 
+                        <!-- Job title -->
                         <h3 class="job-card-title">
                             <?= htmlspecialchars($listing->title ?? 'Untitled Job') ?>
                         </h3>
 
+                        <!-- Job description, limited to 150 characters -->
                         <p class="job-card-description">
-                            <?= htmlspecialchars($listing->description ?? 'No description available.') ?>
+                            <?= htmlspecialchars(strlen($listing->description ?? '') > 150
+                                ? substr($listing->description, 0, 147) . '...'
+                                : $listing->description ?? 'No description available.') ?>
                         </p>
 
+                        <!-- Job meta details -->
                         <div class="job-card-meta">
                             <div class="job-meta-row">
                                 <span class="job-meta-label">Salary</span>
@@ -71,22 +85,24 @@ loadPartial('navbar');
 
                             <div class="job-meta-row job-tags-row">
                                 <span class="job-meta-label">Tags</span>
-
                                 <div class="job-tags">
-                                    <?php $tags = explode(',', $listing->tags ?? ''); ?>
-
-                                    <?php foreach ($tags as $tag) : ?>
-                                        <?php if (trim($tag) !== '') : ?>
-                                            <span class="job-tag">
-                                                <?= htmlspecialchars(trim($tag)) ?>
-                                            </span>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
+                                    <?php
+                                    $tags = explode(',', $listing->tags ?? '');
+                                    foreach ($tags as $tag) :
+                                        $tag = trim($tag);
+                                        if ($tag !== '') :
+                                    ?>
+                                            <span class="job-tag"><?= htmlspecialchars($tag) ?></span>
+                                    <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="/WS03/Public/listing/<?= htmlspecialchars($listing->id ?? '') ?>" class="job-details-btn">
+                        <!-- View Details button -->
+                        <a href="/WS03/Public/listings/<?= htmlspecialchars($listing->id ?? '') ?>" class="job-details-btn">
                             View Details
                         </a>
                     </div>

@@ -23,7 +23,7 @@
                 Start your search here
             </div>
 
-            <form class="hero-search-form">
+            <form method="GET" action="/WS03/Public/listings/search" class="hero-search-form">
                 <div class="input-group">
                     <i class="fa fa-search"></i>
                     <input type="text" name="keywords" placeholder="Search jobs, skills, or companies" />

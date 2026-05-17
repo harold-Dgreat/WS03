@@ -5149,3 +5149,455 @@ section:has(.cta-banner) {
     font-size: clamp(2rem, 10vw, 3.2rem);
   }
 }
+
+/* =========================================================
+   FINAL OVERRIDE - Body & CTA Banner
+   ========================================================= */
+
+/* Make body background match hero/sections */
+body.bg-gray-100 {
+  background-color: #0f1220 !important;
+  /* Dark background */
+}
+
+/* Remove extra white from section wrapping CTA banner */
+section:has(.cta-banner) {
+  background: transparent !important;
+  padding-top: 0 !important;
+  /* optional spacing adjustment */
+  padding-bottom: 0 !important;
+  /* optional spacing adjustment */
+}
+
+/* CTA Banner Styling */
+.cta-banner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2.8rem 3rem;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(21, 25, 39, 0.98), rgba(27, 32, 51, 0.98)) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 18px rgba(34, 211, 238, 0.28) !important;
+  border: none !important;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+
+/* Gradient bar at top of banner */
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--accent), var(--primary), var(--secondary), var(--accent-2));
+  z-index: 1;
+}
+
+/* HIRING sticker */
+.cta-banner::after {
+  content: "HIRING";
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 1;
+  padding: 0.35rem 0.9rem;
+  border-radius: 12px;
+  background: var(--accent-2);
+  color: #050505;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  transform: rotate(7deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  animation: floatSticker 3.5s ease-in-out infinite;
+}
+
+/* Hover effect for banner */
+.cta-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45), 0 0 28px rgba(34, 211, 238, 0.35);
+}
+
+/* Headline text */
+.cta-banner h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  line-height: 1.1;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* Subtext */
+.cta-banner p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d1d5db;
+  max-width: 480px;
+  z-index: 2;
+}
+
+/* Button */
+.cta-banner .btn {
+  padding: 0.85rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #22d3ee, #8b5cf6);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.28);
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-banner .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.45), 0 0 20px rgba(34, 211, 238, 0.35);
+}
+
+/* Floating animation for HIRING sticker */
+@keyframes floatSticker {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(7deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(5deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.25rem;
+  }
+
+  .cta-banner h2 {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+  }
+
+  .cta-banner p {
+    font-size: 0.95rem;
+  }
+
+  .cta-banner .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-banner::after {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ==============================
+   Floating Post a Job Card Section
+   ============================== */
+section:has(.cta-banner) {
+  position: relative;
+  background: linear-gradient(145deg, #1b1f32, #262a42);
+  /* slightly lighter than hero */
+  padding: 4rem 2rem;
+  margin: 4rem auto;
+  /* vertical spacing */
+  max-width: 1280px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 211, 238, 0.15);
+  z-index: 5;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Floating hover effect */
+section:has(.cta-banner):hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.55), 0 0 28px rgba(34, 211, 238, 0.25);
+}
+
+/* Subtle top/bottom separation */
+section:has(.cta-banner)::before,
+section:has(.cta-banner)::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+section:has(.cta-banner)::before {
+  margin-bottom: 2rem;
+}
+
+section:has(.cta-banner)::after {
+  margin-top: 2rem;
+}
+
+/* CTA banner styling inside */
+.cta-banner {
+  position: relative;
+  background: linear-gradient(145deg, #1c2035, #2d314d);
+  padding: 2.5rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 18px rgba(34, 211, 238, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the banner */
+.cta-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(34, 211, 238, 0.25);
+}
+
+/* Maintain the HIRING sticker float */
+.cta-banner::after {
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   Simple Dark Theme - Job Details Page
+   ========================================================= */
+body {
+  background-color: #121217;
+  /* dark base */
+  color: #e0e0e0;
+  /* default text */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Container Sections */
+section.container {
+  padding: 2rem;
+}
+
+/* Job Card Wrapper */
+section.container>div.rounded-lg {
+  background-color: #1c1c25;
+  border: 1px solid #2c2c36;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section.container>div.rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Back Link */
+a.block.text-blue-700 {
+  color: #74b9ff !important;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Job Title */
+h2.text-xl.font-semibold {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Job Description */
+p.text-gray-700.text-lg {
+  color: #cfcfcf !important;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
+
+/* Details List */
+ul.my-4 {
+  background-color: #1a1a23;
+  border: 1px solid #2c2c36;
+  padding: 1.5rem;
+  border-radius: 12px;
+  list-style: none;
+}
+
+ul.my-4 li {
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+/* Job Tags */
+span.job-tag {
+  background-color: #2c2c36;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}
+
+/* Job Details Section */
+section.container+section.container {
+  margin-top: 2rem;
+}
+
+section.container+section.container>div.rounded-lg {
+  border: 1px solid #2c2c36;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background-color: #1c1c25;
+}
+
+/* Headings inside Job Details */
+section.container+section.container h3 {
+  color: #74b9ff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Job Details Paragraphs */
+section.container+section.container p {
+  color: #dcdcdc;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+
+/* Apply Now Button */
+a[href^="mailto:"] {
+  background-color: #74b9ff !important;
+  color: #1c1c25 !important;
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  display: block;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+a[href^="mailto:"]:hover {
+  background-color: #4a90e2 !important;
+  transform: translateY(-2px);
+}
+
+/* Spacing between sections */
+section.container {
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   Dark Theme - Login Page
+   ========================================================= */
+body {
+  background-color: #121217;
+  /* Dark background for entire page */
+  color: #e0e0e0;
+  /* Default text color */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Centered Login Box */
+div.flex.justify-center.items-center {
+  min-height: calc(100vh - 80px);
+  /* full height minus navbar */
+}
+
+/* Login Form Card */
+div.bg-white.p-8.rounded-lg.shadow-md {
+  background-color: #1c1c25;
+  /* Dark card background */
+  border: 1px solid #2c2c36;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+div.bg-white.p-8.rounded-lg.shadow-md:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Login Title */
+h2.text-4xl.text-center.font-bold {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+/* Form Inputs */
+input[type="email"],
+input[type="password"] {
+  background-color: #2a2a37;
+  color: #e0e0e0;
+  border: 1px solid #3b3b4a;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #74b9ff;
+  box-shadow: 0 0 0 3px rgba(116, 185, 255, 0.3);
+}
+
+/* Login Button */
+button[type="submit"] {
+  background-color: #74b9ff;
+  color: #1c1c25;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #4a90e2;
+  transform: translateY(-2px);
+}
+
+/* Register Link Text */
+p.mt-4.text-gray-500 {
+  color: #b0b0b0;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+p.mt-4.text-gray-500 a {
+  color: #74b9ff;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Error messages */
+div.errors {
+  background-color: #2c1c1c;
+  color: #ff6b6b;
+  border-left: 3px solid #ff4757;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  div.bg-white.p-8.rounded-lg.shadow-md {
+    padding: 1.5rem;
+    width: 90%;
+    margin: 1rem;
+  }
+
+  h2.text-4xl.text-center.font-bold {
+    font-size: 2rem;
+  }
+}

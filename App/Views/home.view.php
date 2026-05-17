@@ -3,7 +3,7 @@ $listings = $listings ?? [];
 
 loadPartial('head');
 loadPartial('navbar');
-loadPartial('showcase');
+loadPartial('showcase-search');
 ?>
 
 <section class="top-banner">
@@ -31,7 +31,7 @@ loadPartial('showcase');
                     <div class="job-card-content">
                         <div class="job-card-top">
                             <span class="job-card-category">
-                                <?= htmlspecialchars($listing->company ?? 'Company') ?>
+                                <?= htmlspecialchars_decode($listing->company ?? 'Company') ?>
                             </span>
 
                             <span class="job-badge">Local</span>
@@ -87,7 +87,7 @@ loadPartial('showcase');
                             </div>
                         </div>
 
-                        <a href="/WS03/Public/listing/<?= htmlspecialchars($listing->id ?? '') ?>" class="job-details-btn">
+                        <a href="/WS03/Public/listings/<?= htmlspecialchars($listing->id ?? '') ?>" class="job-details-btn">
                             View Details
                         </a>
                     </div>
@@ -104,20 +104,18 @@ loadPartial('showcase');
     </div>
 </section>
 
-<section class="container mx-auto max-w-6xl px-4 mb-16">
+<section class="container mx-auto max-w-6xl px-4 mb-16 cta-banner-section">
     <div class="cta-banner">
         <div>
             <h2>Post a Job Opening</h2>
             <p>Share your job listing and reach more applicants.</p>
         </div>
-
         <a href="/WS03/Public/listings/create" class="btn btn-primary">
             <i class="fa fa-edit"></i>
             Post a Job
         </a>
     </div>
 </section>
-
 <?php
 loadPartial('footer');
 ?>
